@@ -1,0 +1,37 @@
+# Zones
+# https://www.home-assistant.io/components/zone/
+
+# Jon's Parents House
+- name: Jon's Parents
+  latitude: !secret jon_parents_latitude
+  longitude: !secret jon_parents_longitude
+  radius: 50
+  icon: mdi:home
+
+# Lee's Parents House
+- name: Lee's Parents
+  latitude: !secret lee_parents_latitude
+  longitude: !secret lee_parents_longitude
+  radius: 50
+  icon: mdi:home
+
+# Jon's Work (Hub)
+- name: Jon's Work (Hub)
+  latitude: !secret jon_work_hub_latitude
+  longitude: !secret jon_work_hub_longitude
+  radius: 50
+  icon: mdi:briefcase
+
+# Jon's Work (Hospital)
+- name: Jon's Work (Hospital)
+  latitude: !secret jon_work_hospital_latitude
+  longitude: !secret jon_work_hospital_longitude
+  radius: 50
+  icon: mdi:briefcase
+
+# Lee's Work
+- name: Lee's Work
+  latitude: !secret lee_work_latitude
+  longitude: !secret lee_work_longitude
+  radius: 50
+  icon: mdi:briefcase
