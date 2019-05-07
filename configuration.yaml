@@ -101,4 +101,4 @@ alexa: !include config/alexa.yaml
 
 # Person
 # https://www.home-assistant.io/components/person/
-person: !inclue config/person.yaml
+person: !include config/person.yaml
