@@ -15,6 +15,13 @@ homeassistant:
   customize_glob: !include config/customize_glob.yaml
   customize: !include config/customize.yaml
 
+  # Authentication Providers
+  auth_providers:
+    - type: homeassistant
+    - type: trusted_networks
+        trusted_networks:
+          - 10.1.1.1/24
+
   # Packages
   # https://home-assistant.io/docs/configuration/packages/ 
   packages: !include_dir_named packages
@@ -39,6 +46,10 @@ recorder: !include config/recorder.yaml
 # Note: All entries need to also be defined in recorder.yaml
 # https://www.home-assistant.io/components/logbook/
 logbook: !include config/logbook.yaml
+
+# Frontend
+# https://www.home-assistant.io/components/frontend/
+frontend: !include config/frontend.yaml
 
 # Discovery
 # https://www.home-assistant.io/components/discovery/
