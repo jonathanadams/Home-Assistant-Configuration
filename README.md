@@ -12,4 +12,6 @@ There is an automation script which monitors for a successful Travis build to oc
 
 This method enables changes to be made away from the main Home Assistant system, uploaded to GitHib and automatically applied to the running sysstem.
 
-[![Build Status](https://travis-ci.org/jonathanadams/Home-Assistant-Configuration.svg?branch=master)](https://travis-ci.org/jonathanadams/Home-Assistant-Configuration)
+## Backup Strategy (TODO)
+See[Issue #1](https://github.com/jonathanadams/Home-Assistant-Configuration/issues/1)
+
