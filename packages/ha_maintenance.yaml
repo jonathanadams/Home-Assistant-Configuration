@@ -1,0 +1,15 @@
+# Home Assistant Maintenance
+
+automation:
+  - alias: HASSIO Weekly Snapshot
+    trigger:
+      - platform: time
+        at: "3:00:00"
+    condition:
+      condition: time
+      weekday:
+        - sun
+    action:
+    - service: hassio.snapshot_full
+      data_template:
+        name: "Automated Backup {{ now().strftime('%Y-%m-%d') }}"
