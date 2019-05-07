@@ -1,0 +1,14 @@
+# Person
+# https://www.home-assistant.io/components/person/
+
+# Jon
+- name: Jon
+  id: jon
+  device_trackers:
+    - device_tracker.jonathan_iphone
+
+# Lee
+- name: Lee
+  id: lee
+  device_trackers:
+    - device_tracker.lee_iphone
