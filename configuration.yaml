@@ -30,9 +30,18 @@ homeassistant:
 # https://home-assistant.io/components/http/
 http: !include config/http.yaml
 
+# API
+# https://www.home-assistant.io/components/api/
+# https://developers.home-assistant.io/docs/en/external_api_rest.html
+# Depends upon the HTTP component
+api:
+
 # Config
 # https://www.home-assistant.io/components/config/
 config:
+
+# HASS.io
+hassio:
 
 # Panel iFrames
 # # https://www.home-assistant.io/components/panel_iframe/
@@ -83,3 +92,9 @@ ios:
 # Zones
 # https://www.home-assistant.io/components/zone/
 zone: !include config/zones.yaml
+
+# Alexa
+# https://www.home-assistant.io/components/alexa.smart_home/
+# https://www.home-assistant.io/components/alexa.flash_briefings/
+# https://github.com/mike-grant/haaska
+alexa: !include config/alexa.yaml

@@ -1,0 +1,11 @@
+# Hive
+# https://www.home-assistant.io/components/hive/
+
+# Components
+hive:
+  username: !secret hive_username
+  password: !secret hive_password
+
+# Customizations
+sensor.hive_thermostat_status:
+  icon: mdi:switch
