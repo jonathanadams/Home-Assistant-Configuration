@@ -1,3 +1,30 @@
 # Notify
 # https://www.home-assistant.io/components/notify/
 # https://www.home-assistant.io/components/notify.group/
+
+# Living Room TV
+# https://www.home-assistant.io/components/nfandroidtv/
+- platform: nfandroidtv
+  name: Living Room TV
+  host: !secret living_room_tv_ip
+
+# Jon's Devices
+- name: jon_devices
+  platform: group
+  services:
+    - service: ios_jonathan_iphone
+    - service: ios_jonathan_ipad
+
+# Lee's Devices
+- name: lee_devices
+  platform: group
+  services:
+    - service: ios_lee_iphone
+    - service: ios_lee_ipad
+
+# Family Group
+- name: family
+  platform: group
+  services:
+    - service: jon_devices
+    - service: lee_devices
