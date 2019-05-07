@@ -1,0 +1,24 @@
+# Git Ignore File
+
+# Do not ignore
+!/.gitignore
+!/.travis.yml
+
+# Logs
+logs
+*.log
+
+# Ignore Folders
+.storage
+.cloud
+
+# Ignored Files
+secrets.yaml
+ip_bans.yaml
+known_devices.yaml
+*.conf
+*.db
+*.uuid
+
+
+
