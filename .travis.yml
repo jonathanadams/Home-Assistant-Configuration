@@ -12,7 +12,7 @@ python:
   - "3.6"
 
 before_install:
-  - cp secrets-dummy.yaml secrets.yaml
+  - cp secrets_dummy.yaml secrets.yaml
   - touch home-assistant_v2.db
   - touch home-assistant.log
   - HA_VERSION=$(<.HA_VERSION)
