@@ -98,3 +98,7 @@ zone: !include config/zones.yaml
 # https://www.home-assistant.io/components/alexa.flash_briefings/
 # https://github.com/mike-grant/haaska
 alexa: !include config/alexa.yaml
+
+# Person
+# https://www.home-assistant.io/components/person/
+person: !inclue config/person.yaml
