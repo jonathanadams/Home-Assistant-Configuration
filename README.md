@@ -15,3 +15,7 @@ This method enables changes to be made away from the main Home Assistant system,
 ## Backup Strategy (TODO)
 See[Issue #1](https://github.com/jonathanadams/Home-Assistant-Configuration/issues/1)
 
+## Alexa Integration
+Amazon Alexa integration is done using [Haaska](https://github.com/mike-grant/haaska/) a project by Mike Grant.
+
+This involves setting up a custom Lambda Alexa Skill using the project code which allows the Alexa devices to communicate with my Home Assitant instance API.
