@@ -1,0 +1,74 @@
+# Main Configuration
+
+# Main Settings
+# https://www.home-assistant.io/docs/configuration/basic/
+homeassistant:
+  name: Connock-Adams Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  unit_system: metric
+  temperature_unit: C
+  time_zone: Europe/London
+  # Customize
+  # https://www.home-assistant.io/docs/configuration/customizing-devices/
+  customize_glob: !include config/customize_glob.yaml
+  customize: !include config/customize.yaml
+
+  # Packages
+  # https://home-assistant.io/docs/configuration/packages/ 
+  packages: !include_dir_named packages
+
+# HTTP
+# https://home-assistant.io/components/http/
+http: !include config/http.yaml
+
+# Config
+# https://www.home-assistant.io/components/config/
+config:
+
+# Panel iFrames
+# # https://www.home-assistant.io/components/panel_iframe/
+panel_iframe: !include config/iframe.yaml
+
+# Recorder
+# https://www.home-assistant.io/components/recorder/
+recorder: !include config/recorder.yaml
+
+# Logbook
+# Note: All entries need to also be defined in recorder.yaml
+# https://www.home-assistant.io/components/logbook/
+logbook: !include config/logbook.yaml
+
+# Discovery
+# https://www.home-assistant.io/components/discovery/
+discovery: !include config/discovery.yaml
+
+# MQTT
+# https://www.home-assistant.io/components/mqtt/
+mqtt: !include config/mqtt.yaml
+
+# Map
+# https://www.home-assistant.io/components/system_health/
+map:
+
+# System Health
+system_health:
+
+# Notify
+# https://www.home-assistant.io/components/notify/
+# https://www.home-assistant.io/components/notify.group/
+notify: !include config/notify.yaml
+
+# Update Settings
+# https://www.home-assistant.io/components/updater/
+updater:
+  include_used_components: true
+
+# iOS Support
+# https://www.home-assistant.io/docs/ecosystem/ios/
+ios:
+
+# Zones
+# https://www.home-assistant.io/components/zone/
+zone: !include config/zones.yaml
