@@ -13,7 +13,7 @@ sensors:
     friendly_name: Hive Thermostat Battery
     value_template: '{{ states.climate.heating.attributes.battery_level | replace("%", "") }}'
     unit_of_measurement: '%'
-    icon_template: >-
+    icon_template: >
       {% set battery_level = states('sensor.hive_thermostat_battery')|int('unknown') %}
       {% set battery_round = (battery_level|int / 10)|int * 10 %}
       {% if battery_level == 'unknown' %}
