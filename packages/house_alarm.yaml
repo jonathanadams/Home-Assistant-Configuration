@@ -1,0 +1,11 @@
+# House Alarm
+
+## Sensor
+- platform: mqtt
+  name: Arming Status
+  state_topic: "home/alarm/arming_status"
+  icon: mdi:alarm-bell
+- platform: mqtt
+  name: Sounder Status
+  state_topic: "home/alarm/sounder_status"
+  icon: mdi:alarm-bell
