@@ -1,5 +1,6 @@
 # Home Assistant Maintenance
 
+# Automation
 automation:
   - alias: HASSIO Weekly Snapshot
     trigger:
@@ -13,3 +14,9 @@ automation:
     - service: hassio.snapshot_full
       data_template:
         name: "Automated Backup {{ now().strftime('%Y-%m-%d') }}"
+
+# Sensor
+- platform: command_line
+  name: HA Installed Version
+  command: "cat .HA_VERSION"
+  scan_interval: 3600
