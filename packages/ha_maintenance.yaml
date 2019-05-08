@@ -16,7 +16,7 @@ automation:
         name: "Automated Backup {{ now().strftime('%Y-%m-%d') }}"
 
 # Sensor
-- platform: command_line
-  name: HA Installed Version
-  command: "cat .HA_VERSION"
-  scan_interval: 3600
+platform: command_line
+name: HA Installed Version
+command: "cat .HA_VERSION"
+scan_interval: 3600
