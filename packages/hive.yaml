@@ -5,3 +5,35 @@
 hive:
   username: !secret hive_username
   password: !secret hive_password
+
+# Sensor
+sensor:
+  - platform: template
+    sensors:
+      hive_thermostat_battery:
+        friendly_name: Hive Thermostat Battery
+        value_template: '{{ states.climate.heating.attributes.battery_level | replace("%", "") }}'
+        unit_of_measurement: '%'
+        icon_template: >-
+          {% set battery_level = states('sensor.hive_thermostat_battery')|int('unknown') %}
+          {% set battery_round = (battery_level|int / 10)|int * 10 %}
+          {% if battery_level == 'unknown' %}
+            mdi:battery-unknown
+          {% else %}
+            {% if battery_round >= 100 %}
+              mdi:battery
+            {% elif battery_round > 0 %}
+              mdi:battery-{{ battery_round }}
+            {% else %}
+              mdi:battery-alert
+            {% endif %}
+          {% endif %}
+      
+      hive_thermostat_status:
+        friendly_name: Hive Thermostat Status
+        value_template: '{{ states.climate.heating.attributes.availability | capitalize }}'
+
+# Customizations
+customize:
+  sensor.hive_thermostat_status:
+    icon: mdi:switch
