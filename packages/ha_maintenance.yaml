@@ -17,7 +17,14 @@ automation:
 
 # Sensor
 sensor:
+  # HA Installed Version
   - platform: command_line
     name: HA Installed Version
     command: "cat .HA_VERSION"
     scan_interval: 3600
+  # HA Latest Version Available
+  - platform: command_line
+    command: python3 -c "import requests; print(requests.get('https://s3.amazonaws.com/hassio-version/stable.json').json()['homeassistant']['default'])"
+    name: HA Upstream Version
+    scan_interval: 3600
+
