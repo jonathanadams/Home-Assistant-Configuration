@@ -1,6 +1,13 @@
 # Zones
 # https://www.home-assistant.io/components/zone/
 
+# Home Ringfence
+- name: Home (Ringfence)
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  radius: 300
+  icon: mdi:home-map-marker
+
 # Jon's Parents House
 - name: Jon's Parents
   latitude: !secret jon_parents_latitude
