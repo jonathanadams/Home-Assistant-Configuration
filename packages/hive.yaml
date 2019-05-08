@@ -34,6 +34,7 @@ sensor:
         value_template: '{{ states.climate.heating.attributes.availability | capitalize }}'
 
 # Customizations
-customize:
-  sensor.hive_thermostat_status:
-    icon: mdi:switch
+homeassistant:
+  customize:
+    sensor.hive_thermostat_status:
+      icon: mdi:switch
