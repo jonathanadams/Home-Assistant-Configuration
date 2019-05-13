@@ -1,0 +1,8 @@
+# Phillips Hue
+# https://www.home-assistant.io/components/hue/
+
+hue:
+  bridges:
+    - host: !secret phillips_hue_hub
+      allow_unreachable: true
+      allow_hue_groups: true
