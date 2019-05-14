@@ -11,6 +11,7 @@ logs
 # Ignore Folders
 .storage
 .cloud
+.vscode
 
 # Ignored Files
 secrets.yaml
@@ -20,5 +21,5 @@ known_devices.yaml
 *.db
 *.uuid
 
-
-
+# Node-Red
+node-red
