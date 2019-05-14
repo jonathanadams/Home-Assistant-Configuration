@@ -2,8 +2,7 @@
 # # https://www.home-assistant.io/components/panel_iframe/
 
 # TasmoAdmin
-panel_iframe:
-  tasmoadmin:
-    title: TasmoAdmin
-    icon: mdi:robot
-    url: !secret tasmo_admin_url
+tasmoadmin:
+  title: TasmoAdmin
+  icon: mdi:robot
+  url: !secret tasmo_admin_url
