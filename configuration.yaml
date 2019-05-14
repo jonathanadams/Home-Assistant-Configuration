@@ -18,9 +18,6 @@ homeassistant:
   # Authentication Providers
   auth_providers:
     - type: homeassistant
-    - type: trusted_networks
-      trusted_networks:
-        - 10.1.1.1/24
 
   # Packages
   # https://home-assistant.io/docs/configuration/packages/ 
