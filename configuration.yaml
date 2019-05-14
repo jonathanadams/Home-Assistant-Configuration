@@ -23,6 +23,12 @@ homeassistant:
   # https://home-assistant.io/docs/configuration/packages/ 
   packages: !include_dir_named packages
 
+# Lovelace UI
+# https://www.home-assistant.io/lovelace/
+# https://www.home-assistant.io/lovelace/yaml-mode/
+lovelace:
+  mode: yaml
+
 # HTTP
 # https://home-assistant.io/components/http/
 http: !include config/http.yaml
