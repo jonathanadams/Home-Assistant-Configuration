@@ -3,7 +3,6 @@
 
 base_url: !secret http_base_url
 use_x_forwarded_for: true
-server_port: 80
 trusted_proxies:
   - 10.1.2.13/32 # IP Address of Traefix Proxy
 ip_ban_enabled: True
