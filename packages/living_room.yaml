@@ -1,1 +1,14 @@
 # Living Room
+
+# Customize
+homeassistant:
+  customize:
+    # Sonoff S20 #1
+    switch.sonoff_s20_1:
+      friendly_name: Left Lamp
+      icon: mdi:lamp
+
+    # Sonoff S20 #2
+    switch.sonoff_s20_2:
+      friendly_name: Right Lamp
+      icon: mdi:lamp
