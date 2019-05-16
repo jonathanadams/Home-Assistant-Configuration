@@ -6,6 +6,7 @@ media_player:
   # Yamaha Amplifier
   # https://www.home-assistant.io/components/yamaha/
   - platform: yamaha
+    name: Living Room Amplifier
     host: !secret living_room_amp_ip
     source_names:
       HDMI1: "HDMI1 - Sky Q"
@@ -28,17 +29,26 @@ media_player:
   # Sony Bravia TV
   # https://www.home-assistant.io/components/braviatv/
   - platform: braviatv
+    name: Living Room TV
     host: !secret living_room_tv_ip
 
 # Customize
 homeassistant:
   customize:
-    # Sonoff S20 #1
+    # Left Lamp (Sonoff S20 #1)
     switch.sonoff_s20_1:
       friendly_name: Left Lamp
       icon: mdi:lamp
 
-    # Sonoff S20 #2
+    # Right Lamp (Sonoff S20 #2)
     switch.sonoff_s20_2:
       friendly_name: Right Lamp
       icon: mdi:lamp
+
+    # Living Room Amplifier
+    media_player:.living_room_amplifier:
+      icon: mdi:surround-sound
+
+    # Living Room TV
+    media_player:.living_room_tv:
+      icon: mdi:television
