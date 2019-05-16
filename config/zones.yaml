@@ -33,12 +33,12 @@
 - name: Jon Work (Hospital)
   latitude: !secret jon_work_hospital_latitude
   longitude: !secret jon_work_hospital_longitude
-  radius: 50
+  radius: 200
   icon: mdi:briefcase
 
 # Lee's Work
 - name: Lee Work
   latitude: !secret lee_work_latitude
   longitude: !secret lee_work_longitude
-  radius: 50
+  radius: 100
   icon: mdi:briefcase
