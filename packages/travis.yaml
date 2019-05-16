@@ -20,11 +20,7 @@ automation:
       - condition: state
         entity_id: sensor.home_assistant_config_last_build_state
         state: 'passed'
-    action:
-      - service: hassio.addon_stop # Requires Git Pull is set to auto-start
-        data: 
-          addon: "core_git_pull"
-      - delay: 0:01
+    action:   
       - service: hassio.addon_start
         data: 
           addon: "core_git_pull"
