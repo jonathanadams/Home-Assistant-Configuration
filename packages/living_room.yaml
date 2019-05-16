@@ -8,7 +8,22 @@ media_player:
   - platform: yamaha
     host: !secret living_room_amp_ip
     source_names:
-      HDMI1: "Sky Q"
+      HDMI1: "HDMI1 - Sky Q"
+    source_ignore:
+      - "Deezer"
+      - "JUKE"
+      - "MusicCast Link"
+      - "Qobuz"
+      - "Spotify"
+      - "Tuner"
+      - "TIDAL"
+      - "USB"
+      - "AUDIO1"
+      - "AUDIO2"
+      - "AUDIO3"
+      - "AV1"
+      - "AV2"
+      - "AV3"
 
 # Sony Bravia TV
 # https://www.home-assistant.io/components/braviatv/
