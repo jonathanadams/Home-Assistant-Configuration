@@ -54,3 +54,14 @@ homeassistant:
     # Living Room TV
     media_player.living_room_tv:
       icon: mdi:television
+
+# Alexa
+alexa:
+  smart_home:
+    entity_config:
+      switch.sonoff_s20_1:
+        name: Left Lamp
+        display_categories: LIGHT
+      switch.sonoff_s20_2:
+        name: Right Lamp
+        display_categories: LIGHT
