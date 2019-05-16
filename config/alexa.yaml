@@ -1,6 +1,7 @@
 # Alexa
 # https://www.home-assistant.io/components/alexa.smart_home/
 # https://www.home-assistant.io/components/alexa.flash_briefings/
+# https://www.nabucasa.com/config/amazon_alexa/
 # https://github.com/mike-grant/haaska
 
 smart_home:
