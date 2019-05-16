@@ -54,6 +54,10 @@ panel_iframe: !include config/iframe.yaml
 # https://www.home-assistant.io/components/recorder/
 recorder: !include config/recorder.yaml
 
+# History
+# https://www.home-assistant.io/components/history
+history: !include config/history.yaml
+
 # Logbook
 # Note: All entries need to also be defined in recorder.yaml
 # https://www.home-assistant.io/components/logbook/
