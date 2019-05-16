@@ -13,6 +13,7 @@ logs
 .cloud
 .vscode
 .Trash-*
+deps/
 
 # Ignored Files
 secrets.yaml
