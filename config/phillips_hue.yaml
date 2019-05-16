@@ -3,6 +3,6 @@
 
 hue:
   bridges:
-    - host: !secret phillips_hue_hub
+    - host: !secret phillips_hue_hub_ip
       allow_unreachable: true
       allow_hue_groups: true
