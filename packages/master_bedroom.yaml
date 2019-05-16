@@ -1,0 +1,14 @@
+# Master Medroom
+
+# Customize
+homeassistant:
+  customize:
+    # Lee's Bedside Lamp (Sonoff S20 #1)
+    switch.sonoff_s20_3:
+      friendly_name: Lee Lamp
+      icon: mdi:lamp
+
+    # Jon's Bedside Lamp (Sonoff S20 #2)
+    switch.sonoff_s20_4:
+      friendly_name: Jon Lamp
+      icon: mdi:lamp
