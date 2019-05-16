@@ -12,3 +12,14 @@ homeassistant:
     switch.sonoff_s20_4:
       friendly_name: Jon Lamp
       icon: mdi:lamp
+
+# Alexa
+alexa:
+  smart_home:
+    entity_config:
+      switch.sonoff_s20_3:
+        name: Lee Lamp
+        display_categories: LIGHT
+      switch.sonoff_s20_4:
+        name: Jon Lamp
+        display_categories: LIGHT
