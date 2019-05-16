@@ -15,10 +15,10 @@ automation:
   - alias: Update HA Config On Successful TravisCI Build
     trigger:
       - platform: state
-        entity_id: sensor.home_assistant_config_last_build_id
+        entity_id: sensor.jonathanadams_home_assistant_config_last_build_id
     condition:
       - condition: state
-        entity_id: sensor.home_assistant_config_last_build_state
+        entity_id: sensor.jonathanadams_home_assistant_config_last_build_state
         state: 'passed'
     action:   
       - service: hassio.addon_start
