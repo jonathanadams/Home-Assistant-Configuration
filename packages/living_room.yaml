@@ -15,7 +15,7 @@ media_player:
       - "MusicCast Link"
       - "Qobuz"
       - "Spotify"
-      - "Tuner"
+      - "TUNER"
       - "TIDAL"
       - "USB"
       - "AUDIO1"
@@ -24,6 +24,8 @@ media_player:
       - "AV1"
       - "AV2"
       - "AV3"
+      - "AUX"
+      - "SERVER"
 
   # Sony Bravia TV
   # https://www.home-assistant.io/components/braviatv/
