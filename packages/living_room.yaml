@@ -2,17 +2,16 @@
 
 # Components
 
-# Yamaha Amplifier
-# https://www.home-assistant.io/components/yamaha/
 media_player:
+  # Yamaha Amplifier
+  # https://www.home-assistant.io/components/yamaha/
   - platform: yamaha
     host: !secret living_room_amp_ip
     source_names:
       HDMI1: "Sky Q"
 
-# Sony Bravia TV
-# https://www.home-assistant.io/components/braviatv/
-media_player:
+  # Sony Bravia TV
+  # https://www.home-assistant.io/components/braviatv/
   - platform: braviatv
     host: !secret living_room_tv_ip
 
