@@ -6,7 +6,7 @@ sensor:
   - platform: mqtt
     name: Arming Status
     state_topic: "home/alarm/arming_status"
-    icon: mdi:alarm-bell
+    icon: mdi:home-lock
 
   # Sounder Status
   - platform: mqtt
