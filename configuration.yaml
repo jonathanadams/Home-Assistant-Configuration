@@ -27,7 +27,7 @@ homeassistant:
 # https://www.home-assistant.io/lovelace/
 # https://www.home-assistant.io/lovelace/yaml-mode/
 lovelace:
-  mode: yaml
+ # mode: yaml
 
 # HTTP
 # https://home-assistant.io/components/http/
