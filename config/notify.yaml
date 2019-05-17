@@ -28,3 +28,8 @@
   services:
     - service: jon_devices
     - service: lee_devices
+
+# Twilio SMS Notification
+- name: sms_notification
+  platform: twilio_sms
+  from_number: 17RowanCl
