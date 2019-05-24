@@ -46,6 +46,16 @@ homeassistant:
     switch.sonoff_s20_2:
       friendly_name: Right Lamp
       icon: mdi:lamp
+    
+    # Left Colour (Phillips Hue Iris)
+    light.living_room_left_color:
+      friendly_name: Left Colour
+      icon: mdi:track-light
+
+    # Right Colour (Phillips Hue Iris)
+    light.living_room_right_color:
+      friendly_name: Right Colour
+      icon: mdi:track-light
 
     # Living Room Amplifier
     media_player.living_room_amplifier:
