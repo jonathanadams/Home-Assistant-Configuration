@@ -28,3 +28,6 @@ node-red
 
 # Operating System Trash Files
 .DS_Store
+
+# Alexa Media
+alexa_media.*.pickle
