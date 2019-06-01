@@ -1,0 +1,9 @@
+input_boolean:
+  # Alarm Arming Status Notifications
+  notification_alarm_arming_status:
+    name: Alarm Arming Status Notifications
+    initial: on
+  # Alarm Sounding Notifications
+  notification_alarm_sounding:
+    name: Alarm Sounding Notifications
+    initial: on
