@@ -25,3 +25,6 @@ known_devices.yaml
 
 # Node-Red
 node-red
+
+# Operating System Trash Files
+.DS_Store
