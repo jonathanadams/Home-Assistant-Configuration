@@ -7,3 +7,7 @@ input_boolean:
   notification_alarm_sounding:
     name: Alarm Sounding Notifications
     initial: on
+  # Alarm Sounding Notifications
+  notification_keysafe_open_close:
+    name: Keysafe Open/Closed Status 
+    initial: on
