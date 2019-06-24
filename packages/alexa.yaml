@@ -13,7 +13,8 @@ alexa:
         - light
         - climate
         - media_player
-        - scene
+      exclude_domains:
+        - group
 
 # Alexa Media Player Compenent
 # https://github.com/keatontaylor/alexa_media_player
