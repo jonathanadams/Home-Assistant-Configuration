@@ -34,16 +34,34 @@ media_player:
     name: Living Room TV
     host: !secret living_room_tv_ip
 
+# Group
+group:
+  living_room_all_lights:
+    name: Living Room All Lights
+    entities:
+      - group.living_room_lamps
+      - group.living_room_hue
+  living_room_all_lamps:
+    name: Living Room Lamps
+    entities:
+      - switch.living_room_left_lamp
+      - switch.living_room_right_lamp
+  living_room_all_hue:
+    name: Living Room Hue's
+    entities:
+      - light.living_room_left_color
+      - light.living_room_right_color
+
 # Customize
 homeassistant:
   customize:
-    # Left Lamp (Sonoff S20 #1)
-    switch.sonoff_s20_1:
+    # Left Lamp (Living Room Left Lamp)
+    switch.living_room_left_lamp:
       friendly_name: Left Lamp
       icon: mdi:lamp
 
-    # Right Lamp (Sonoff S20 #2)
-    switch.sonoff_s20_2:
+    # Right Lamp (Living Room Right Lamp)
+    switch.living_room_right_lamp:
       friendly_name: Right Lamp
       icon: mdi:lamp
     
@@ -68,10 +86,24 @@ homeassistant:
 # Alexa
 alexa:
   smart_home:
+    filter:
+      include_entities:
+        - group.living_room_all_lights
+        - group.living_room_lamps
+        - group.living_room_hue
     entity_config:
-      switch.sonoff_s20_1:
+      switch.living_room_left_lamp:
         name: Left Lamp
         display_categories: LIGHT
-      switch.sonoff_s20_2:
+      switch.living_room_right_lamp:
         name: Right Lamp
+        display_categories: LIGHT
+      group.living_room_all_lights:
+        name: Living Room Lights
+        display_categories: LIGHT
+      group.living_room_all_lamps:
+        name: Living Room Lamps
+        display_categories: LIGHT
+      group.living_room_all_hue:
+        name: Living Room Hues
         display_categories: LIGHT
