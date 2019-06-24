@@ -11,3 +11,7 @@ input_boolean:
   notification_keysafe_open_close:
     name: Keysafe Open/Closed Status 
     initial: on
+  # Porch Lighting Timer
+  porch_lighting_timer:
+    name: Porch Lighting Timer
+    initial: on

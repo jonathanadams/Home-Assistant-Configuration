@@ -1,0 +1,18 @@
+# Spare Bedroom
+
+# Customize
+homeassistant:
+  customize:
+    # Ceiling Light
+    switch.spare_room_light:
+      friendly_name: Ceiling Light
+      icon: mdi:ceiling-light
+
+
+# Alexa
+alexa:
+  smart_home:
+    entity_config:
+      switch.spare_room_light:
+        name: Spare Room Light
+        display_categories: LIGHT

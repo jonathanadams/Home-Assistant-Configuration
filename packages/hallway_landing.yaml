@@ -1,0 +1,35 @@
+# Living Room
+
+# Components
+
+# Customize
+homeassistant:
+  customize:
+    # Porch Light
+    switch.porch_light:
+      friendly_name: Porch Light
+      icon: mdi:ceiling-light
+
+    # Hallway Light
+    switch.hallway_light:
+      friendly_name: Hallway Light
+      icon: mdi:ceiling-light
+
+    # Landing Light
+    switch.landing_light:
+      friendly_name: Landing Light
+      icon: mdi:ceiling-light
+
+# Alexa
+alexa:
+  smart_home:
+    entity_config:
+      switch.porch_light:
+        name: Porch Light
+        display_categories: LIGHT
+      switch.hallway_light:
+        name: Hallway Light
+        display_categories: LIGHT
+      switch.landing_light:
+        name: Landing Light
+        display_categories: LIGHT
