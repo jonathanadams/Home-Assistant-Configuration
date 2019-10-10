@@ -46,10 +46,6 @@ config:
 # HASS.io
 hassio:
 
-# Panel iFrames
-# https://www.home-assistant.io/components/panel_iframe/
-panel_iframe: !include config/iframe.yaml
-
 # Recorder
 # https://www.home-assistant.io/components/recorder/
 recorder: !include config/recorder.yaml
