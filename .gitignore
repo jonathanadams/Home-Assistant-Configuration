@@ -35,3 +35,12 @@ alexa_media.*.pickle
 
 # Ring
 .ring_cache.pickle
+
+# ESPHome
+/.esphome/
+**/.pioenvs/
+**/.piolibdeps/
+**/lib/
+**/src/
+**/platformio.ini
+/secrets.yaml
