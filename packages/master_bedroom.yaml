@@ -2,11 +2,11 @@
 
 # Group
 group:
-  bedroom_all_lights:
+  master_bedroom_all_lights:
     name: Bedroom All Lights
     entities:
-      - group.bedroom_lamps
-  bedroom_all_lamps:
+      - group.master_bedroom_all_lamps
+  master_bedroom_all_lamps:
     name: Bedroom Lamps
     entities:
       - switch.master_bedroom_jon_lamp
@@ -30,8 +30,8 @@ alexa:
   smart_home:
     filter:
       include_entities:
-        - group.bedroom_all_lights
-        - group.bedroom_lamps
+        - group.master_bedroom_all_lights
+        - group.master_bedroom_all_lamps
     entity_config:
       switch.master_bedroom_lee_lamp:
         name: Lee Lamp
@@ -39,9 +39,9 @@ alexa:
       switch.master_bedroom_jon_lamp:
         name: Jon Lamp
         display_categories: LIGHT
-      group.bedroom_all_lights:
+      group.master_bedroom_all_lights:
         name: Bedroom Lights
         display_categories: LIGHT
-      group.bedroom_all_lamps:
+      group.master_bedroom_all_lamps:
         name: Bedroom Lamps
         display_categories: LIGHT
