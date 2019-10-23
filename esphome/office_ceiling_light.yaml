@@ -1,0 +1,56 @@
+# Shelly 1
+
+# Basic Config
+
+esphome:
+  name: office_ceiling_light
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret esphome_wifi_ssid
+  password: !secret esphome_wifi_password
+
+logger:
+
+api:
+  reboot_timeout: 15min
+
+ota:
+  password: !secret esphome_ota_password
+
+time:
+  - platform: sntp
+    id: sntp_time
+
+# Device Specific Config
+
+binary_sensor:
+  - platform: status
+    name: "Office Ceiling Light Status"
+  - platform: gpio
+    pin:
+      number: GPIO5
+      #mode: INPUT_PULLUP
+      #inverted: True
+    name: "Office Ceiling Light"
+    on_state:
+      - light.toggle: lightid
+    internal: true
+    
+sensor:
+  - platform: wifi_signal
+    name: "Office Ceiling Light WiFi Signal"
+    update_interval: 60s
+    
+    
+output:
+  - platform: gpio
+    pin: GPIO4
+    id: gpio_4
+
+light:
+  - platform: binary
+    name: "Office Ceiling Light"
+    output: gpio_4
+    id: lightid
