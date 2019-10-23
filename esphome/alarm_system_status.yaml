@@ -1,0 +1,67 @@
+# Custom ESP8266 Device
+
+# Basic Config
+esphome:
+  name: alarm_system_status
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: !secret esphome_wifi_ssid
+  password: !secret esphome_wifi_password
+
+logger:
+
+api:
+  reboot_timeout: 15min
+
+ota:
+  password: !secret esphome_ota_password
+
+time:
+  - platform: sntp
+    id: sntp_time
+
+# Device Specific Config
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO12
+      inverted: true
+    id: alarm_arming_staus
+  - platform: gpio
+    pin:
+      number: GPIO14
+      inverted: true
+    id: alarm_sounder_status
+    
+text_sensor:
+  - platform: template
+    name: "Alarm Arming Status"
+    icon: "mdi:lock"
+    lambda: |-
+      if (id(alarm_arming_staus).state == 1) {
+        return {"Armed"};
+      } else {
+        return {"Disarmed"};
+      }
+    update_interval: 5s
+  - platform: template
+    name: "Alarm Sounder Status"
+    icon: "mdi:alarm-bell"
+    lambda: |-
+      if (id(alarm_sounder_status).state == 1) {
+        return {"Sounding"};
+      } else {
+        return {"Not Sounding"};
+      }
+    update_interval: 5s
+    
+sensor:
+  - platform: wifi_signal
+    name: "Alarm System WiFi Status"
+    update_interval: 60s
+    
+switch:
+  - platform: restart
+    name: "Alarm System Status Restart"
