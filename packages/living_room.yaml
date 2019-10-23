@@ -39,8 +39,8 @@ group:
   living_room_all_lights:
     name: Living Room All Lights
     entities:
-      - group.living_room_lamps
-      - group.living_room_hue
+      - group.living_room_all_lamps
+      - group.living_room_all_hue
   living_room_all_lamps:
     name: Living Room Lamps
     entities:
@@ -89,8 +89,8 @@ alexa:
     filter:
       include_entities:
         - group.living_room_all_lights
-        - group.living_room_lamps
-        - group.living_room_hue
+        - group.living_room_all_lamps
+        - group.living_room_all_hue
     entity_config:
       switch.living_room_left_lamp:
         name: Left Lamp
