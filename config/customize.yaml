@@ -1,2 +1,5 @@
 # Customize
 # https://www.home-assistant.io/docs/configuration/customizing-devices/
+
+sensor.hot_tub_energy_power:
+  force_update: true
