@@ -17,9 +17,6 @@ There is an automation script which monitors for a successful Travis build to oc
 
 This method enables changes to be made away from the main Home Assistant system, uploaded to GitHib and automatically applied to the running sysstem.
 
-## Backup Strategy (TODO)
-See [Issue #1](https://github.com/jonathanadams/Home-Assistant-Configuration/issues/1)
-
 ## Alexa Integration
 Amazon Alexa integration is done using [Haaska](https://github.com/mike-grant/haaska/) a project by Mike Grant.
 
