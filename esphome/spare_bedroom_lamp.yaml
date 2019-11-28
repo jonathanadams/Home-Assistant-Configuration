@@ -1,0 +1,65 @@
+# Sonoff S20
+
+# Substitutions
+substitutions:
+  # Device Names
+  device_name: "spare_bedroom_lamp"
+  friendly_name: "Spare Bedroom Lamp"
+  # Icon
+  main_icon: "floor-lamp"
+  # Default Relay State
+  # Aka: `restore_mode` in documentation
+  # Options: `RESTORE_DEFAULT_OFF`, `RESTORE_DEFAULT_ON`, `ALWAYS_ON` & `ALWAYS_OFF`
+  default_state: "RESTORE_DEFAULT_OFF"
+
+# Basic Config
+esphome:
+  name: "${device_name}"
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret esphome_wifi_ssid
+  password: !secret esphome_wifi_password
+
+logger:
+
+api:
+  reboot_timeout: 15min
+
+ota:
+  password: !secret esphome_ota_password
+
+time:
+  - platform: sntp
+    id: sntp_time
+
+# Device Specific Config
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "${friendly_name} Button"
+    on_press:
+      - switch.toggle: relay
+  - platform: status
+    name: "${friendly_name} Status"
+
+sensor:
+  - platform: wifi_signal
+    name: "${friendly_name} WiFi Signal"
+    update_interval: 60s
+
+switch:
+  - platform: gpio
+    name: "${friendly_name}"
+    icon: "mdi:${main_icon}"
+    pin: GPIO12
+    id: relay
+    restore_mode: "${default_state}"
+
+status_led:
+  pin: 
+    number: GPIO13
