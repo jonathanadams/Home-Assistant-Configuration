@@ -9,7 +9,7 @@ cloud:
     # These are loaded from a separate directory.
     entity_config: !include_dir_merge_named ../assistants/alexa
 
-  filter:
-    # Filters for entities to include/exclude from Alexa.
-    include: []
-    exclude: []
+    filter:
+      # Filters for entities to include/exclude from Alexa.
+      include: []
+      exclude: []
