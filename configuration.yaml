@@ -27,7 +27,6 @@ homeassistant:
 # https://www.home-assistant.io/lovelace/
 # https://www.home-assistant.io/lovelace/yaml-mode/
 lovelace:
- # mode: yaml
 
 # HTTP
 # https://home-assistant.io/components/http/
@@ -39,6 +38,10 @@ http: !include config/http.yaml
 # Depends upon the HTTP component
 api:
 
+# Cloud
+# https://www.nabucasa.com/config/
+cloud:
+
 # Config
 # https://www.home-assistant.io/components/config/
 config:
@@ -48,7 +51,9 @@ hassio:
 
 # Recorder
 # https://www.home-assistant.io/components/recorder/
-recorder: !include config/recorder.yaml
+recorder:
+  purge_keep_days: 7
+  purge_interval: 1
 
 # History
 # https://www.home-assistant.io/components/history
@@ -61,15 +66,12 @@ logbook: !include config/logbook.yaml
 
 # Frontend
 # https://www.home-assistant.io/components/frontend/
-frontend: !include config/frontend.yaml
+frontend:
+  themes: !include_dir_merge_named themes
 
 # Discovery
 # https://www.home-assistant.io/components/discovery/
 discovery: !include config/discovery.yaml
-
-# MQTT
-# https://www.home-assistant.io/components/mqtt/
-mqtt: !include config/mqtt.yaml
 
 # Map
 # https://www.home-assistant.io/components/system_health/
@@ -92,6 +94,9 @@ updater:
 # https://www.home-assistant.io/docs/ecosystem/ios/
 ios:
 
+# Mobile App
+mobile_app:
+
 # Zones
 # https://www.home-assistant.io/components/zone/
 zone: !include config/zones.yaml
@@ -100,9 +105,32 @@ zone: !include config/zones.yaml
 # https://www.home-assistant.io/components/person/
 person: !include config/person.yaml
 
+# Scenes
+# https://www.home-assistant.io/docs/scene/editor/
+scene: !include scenes.yaml
+
 # Twilio 
 # https://www.home-assistant.io/components/twilio/
 # https://www.home-assistant.io/components/twilio_sms/
 twilio:
   account_sid: !secret twilio_sid
   auth_token: !secret twilio_auth_token
+
+# Honeywell Evohome
+# https://www.home-assistant.io/integrations/evohome/
+evohome:
+  username: !secret evohome_username
+  password: !secret evohome_password
+  location_idx: 1
+  scan_interval: 180
+
+# Tradfri
+tradfri:
+  host: 10.1.1.174
+  allow_tradfri_groups: true
+
+# Ring
+# https://www.home-assistant.io/integrations/ring/
+ring:
+  username: !secret ring_username
+  password: !secret ring_password

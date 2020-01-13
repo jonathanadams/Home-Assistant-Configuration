@@ -14,6 +14,7 @@
   longitude: !secret jon_parents_longitude
   radius: 50
   icon: mdi:home
+  passive: true
 
 # Lee's Parents House
 - name: Lee Parents
@@ -21,6 +22,7 @@
   longitude: !secret lee_parents_longitude
   radius: 50
   icon: mdi:home
+  passive: true
 
 # Jon's Work (Hub)
 - name: Jon Work (Hub)
@@ -28,6 +30,7 @@
   longitude: !secret jon_work_hub_longitude
   radius: 50
   icon: mdi:briefcase
+  passive: true
 
 # Jon's Work (Hospital)
 - name: Jon Work (Hospital)
@@ -35,6 +38,7 @@
   longitude: !secret jon_work_hospital_longitude
   radius: 200
   icon: mdi:briefcase
+  passive: true
 
 # Lee's Work
 - name: Lee Work
@@ -42,3 +46,4 @@
   longitude: !secret lee_work_longitude
   radius: 100
   icon: mdi:briefcase
+  passive: true
