@@ -44,66 +44,67 @@ group:
   living_room_all_lamps:
     name: Living Room Lamps
     entities:
-      - switch.living_room_left_lamp
-      - switch.living_room_right_lamp
+      - light.living_room_left_lamp
+      - light.living_room_right_lamp
+      - light.living_room_tall_lamp
   living_room_all_hue:
     name: Living Room Hue's
     entities:
       - light.living_room_left_color
       - light.living_room_right_color
 
-# Customize
-homeassistant:
-  customize:
-    # Left Lamp (Living Room Left Lamp)
-    switch.living_room_left_lamp:
-      friendly_name: Left Lamp
-      icon: mdi:lamp
+# # Customize
+# homeassistant:
+#   customize:
+#     # Left Lamp (Living Room Left Lamp)
+#     switch.living_room_left_lamp:
+#       friendly_name: Left Lamp
+#       icon: mdi:lamp
 
-    # Right Lamp (Living Room Right Lamp)
-    switch.living_room_right_lamp:
-      friendly_name: Right Lamp
-      icon: mdi:lamp
+#     # Right Lamp (Living Room Right Lamp)
+#     switch.living_room_right_lamp:
+#       friendly_name: Right Lamp
+#       icon: mdi:lamp
     
-    # Left Colour (Phillips Hue Iris)
-    light.living_room_left_color:
-      friendly_name: Left Colour
-      icon: mdi:track-light
+#     # Left Colour (Phillips Hue Iris)
+#     light.living_room_left_color:
+#       friendly_name: Left Colour
+#       icon: mdi:track-light
 
-    # Right Colour (Phillips Hue Iris)
-    light.living_room_right_color:
-      friendly_name: Right Colour
-      icon: mdi:track-light
+#     # Right Colour (Phillips Hue Iris)
+#     light.living_room_right_color:
+#       friendly_name: Right Colour
+#       icon: mdi:track-light
 
-    # Living Room Amplifier
-    media_player.living_room_amplifier:
-      icon: mdi:surround-sound
+#     # Living Room Amplifier
+#     media_player.living_room_amplifier:
+#       icon: mdi:surround-sound
 
-    # Living Room TV
-    media_player.living_room_tv:
-      icon: mdi:television
+#     # Living Room TV
+#     media_player.living_room_tv:
+#       icon: mdi:television
 
-# Alexa
-alexa:
-  smart_home:
-    filter:
-      include_entities:
-        - group.living_room_all_lights
-        - group.living_room_all_lamps
-        - group.living_room_all_hue
-    entity_config:
-      switch.living_room_left_lamp:
-        name: Left Lamp
-        display_categories: LIGHT
-      switch.living_room_right_lamp:
-        name: Right Lamp
-        display_categories: LIGHT
-      group.living_room_all_lights:
-        name: Living Room Lights
-        display_categories: LIGHT
-      group.living_room_all_lamps:
-        name: Living Room Lamps
-        display_categories: LIGHT
-      group.living_room_all_hue:
-        name: Living Room Hues
-        display_categories: LIGHT
+# # Alexa
+# alexa:
+#   smart_home:
+#     filter:
+#       include_entities:
+#         - group.living_room_all_lights
+#         - group.living_room_all_lamps
+#         - group.living_room_all_hue
+#     entity_config:
+#       switch.living_room_left_lamp:
+#         name: Left Lamp
+#         display_categories: LIGHT
+#       switch.living_room_right_lamp:
+#         name: Right Lamp
+#         display_categories: LIGHT
+#       group.living_room_all_lights:
+#         name: Living Room Lights
+#         display_categories: LIGHT
+#       group.living_room_all_lamps:
+#         name: Living Room Lamps
+#         display_categories: LIGHT
+#       group.living_room_all_hue:
+#         name: Living Room Hues
+#         display_categories: LIGHT

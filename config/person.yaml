@@ -6,11 +6,11 @@
   id: jon
   user_id: 7d12341fc1434391b090c88ba0cdd8e3
   device_trackers:
-    - device_tracker.jonathan_iphone
+    - device_tracker.jonathans_iphone_x
 
 # Lee
 - name: Lee
   id: lee
-  user_id: fdf62a5a85bc46ff8bf1a7f3f2070b6f
+  user_id: b8d967ea2f044aa5a00f8b76d653fb5b
   device_trackers:
-    - device_tracker.lee_iphone
+    - device_tracker.lees_iphone_x
