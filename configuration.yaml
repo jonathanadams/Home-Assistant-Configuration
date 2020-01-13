@@ -124,11 +124,6 @@ evohome:
   location_idx: 1
   scan_interval: 180
 
-# Tradfri
-tradfri:
-  host: 10.1.1.174
-  allow_tradfri_groups: true
-
 # Ring
 # https://www.home-assistant.io/integrations/ring/
 ring:
