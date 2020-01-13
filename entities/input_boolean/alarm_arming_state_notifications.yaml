@@ -1,0 +1,6 @@
+---
+# Alarm Arming Status Notifications
+
+notification_alarm_arming_status:
+  name: Alarm Arming Status Notifications
+  initial: on

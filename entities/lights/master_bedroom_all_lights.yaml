@@ -1,0 +1,8 @@
+---
+# Living Room - All Lights
+# https://www.home-assistant.io/integrations/light.group/
+
+platform: group
+name: master_bedroom_all_lights
+entities:
+  - light.master_bedroom_all_lamps

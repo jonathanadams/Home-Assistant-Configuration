@@ -1,0 +1,5 @@
+---
+# Switches
+# https://www.home-assistant.io/integrations/switch/
+
+switch: !include_dir_list ../entities/switches

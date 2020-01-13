@@ -1,8 +1,0 @@
-# Customize
-# https://www.home-assistant.io/docs/configuration/customizing-devices/
-
-person.jon:
-  entity_picture: "/local/jon.jpg"
-
-person.lee:
-  entity_picture: "/local/lee.jpg"

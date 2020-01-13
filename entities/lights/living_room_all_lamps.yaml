@@ -1,0 +1,10 @@
+---
+# Living Room - All Lamps
+# https://www.home-assistant.io/integrations/light.group/
+
+platform: group
+name: living_room_all_lamps
+entities:
+  - light.living_room_left_lamp
+  - light.living_room_right_lamp
+  - light.living_room_tall_lamp

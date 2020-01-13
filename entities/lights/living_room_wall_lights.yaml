@@ -1,0 +1,9 @@
+---
+# Living Room - Wall Lights
+# https://www.home-assistant.io/integrations/light.group/
+
+platform: group
+name: living_room_wall_lights
+entities:
+  - light.living_room_left_color
+  - light.living_room_right_color

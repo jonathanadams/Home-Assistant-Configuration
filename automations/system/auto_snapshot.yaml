@@ -1,0 +1,16 @@
+---
+# Automatic Home Assistant Snapshot
+# Takes a full snapshot of home assistant every sunday at 0300hrs
+
+alias: HASSIO Weekly Snapshot
+trigger:
+  - platform: time
+    at: "3:00:00"
+condition:
+  condition: time
+  weekday:
+    - sun
+action:
+  - service: hassio.snapshot_full
+    data_template:
+      name: "Automated Backup {{ now().strftime('%Y-%m-%d') }}"

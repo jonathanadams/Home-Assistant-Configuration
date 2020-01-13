@@ -22,7 +22,6 @@ known_devices.yaml
 *.conf
 *.db
 *.uuid
-cameras.yaml
 
 # Node-Red
 node-red

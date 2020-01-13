@@ -1,8 +1,0 @@
-# Office
-
-# Group
-group:
-  office_all_lights:
-    name: Office All Lights
-    entities:
-      - light.office_ceiling_light

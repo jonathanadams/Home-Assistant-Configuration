@@ -1,0 +1,8 @@
+# Honeywell Evohome
+# https://www.home-assistant.io/integrations/evohome/
+
+evohome:
+  username: !secret evohome_username
+  password: !secret evohome_password
+  location_idx: 1
+  scan_interval: 180
