@@ -1,0 +1,7 @@
+---
+# Guest Mode
+
+guest_mode:
+  name: Guest Mode
+  initial: false
+  icon: mdi:hotel

@@ -1,0 +1,26 @@
+---
+# Living Room Yamaha Amplifier
+# https://www.home-assistant.io/components/yamaha/
+
+platform: yamaha
+name: Living Room Amplifier
+host: !secret living_room_amp_ip
+source_names:
+  HDMI1: "HDMI1 - Sky Q"
+source_ignore:
+  - "Deezer"
+  - "JUKE"
+  - "MusicCast Link"
+  - "Qobuz"
+  - "Spotify"
+  - "TUNER"
+  - "TIDAL"
+  - "USB"
+  - "AUDIO1"
+  - "AUDIO2"
+  - "AUDIO3"
+  - "AV1"
+  - "AV2"
+  - "AV3"
+  - "AUX"
+  - "SERVER"

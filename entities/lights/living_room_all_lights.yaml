@@ -1,0 +1,9 @@
+---
+# Living Room - All Lights
+# https://www.home-assistant.io/integrations/light.group/
+
+platform: group
+name: living_room_all_lights
+entities:
+  - light.living_room_all_lamps
+  - light.living_room_wall_lights

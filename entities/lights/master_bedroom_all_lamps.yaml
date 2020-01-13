@@ -1,0 +1,9 @@
+---
+# Master Bedroom - All Lamps
+# https://www.home-assistant.io/integrations/light.group/
+
+platform: group
+name: master_bedroom_all_lamps
+entities:
+  - light.master_bedroom_jon_bedside_lamp
+  - light.master_bedroom_lee_bedside_lamp

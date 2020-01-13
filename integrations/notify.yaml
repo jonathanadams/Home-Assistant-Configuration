@@ -1,0 +1,6 @@
+---
+# Notify
+# https://www.home-assistant.io/components/notify/
+# https://www.home-assistant.io/components/notify.group/
+
+notify: !include_dir_list ../entities/notify

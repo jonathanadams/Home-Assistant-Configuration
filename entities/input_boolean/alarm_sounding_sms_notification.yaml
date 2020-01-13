@@ -1,0 +1,6 @@
+---
+# Alarm Sounding SMS Notification
+
+notification_sms_alarm_sounding:
+  name: Alarm Sounding SMS Alerts
+  initial: on

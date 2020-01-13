@@ -1,0 +1,9 @@
+---
+# Office - All Lights
+# https://www.home-assistant.io/integrations/light.group/
+
+platform: group
+name: office_all_lights
+entities:
+  - light.office_ceiling_light
+  - light.office_all_lamps

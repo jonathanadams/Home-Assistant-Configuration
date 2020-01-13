@@ -1,0 +1,8 @@
+---
+# Defines notification group for Jon's Devices
+
+name: jon_devices
+platform: group
+services:
+  - service: mobile_app_jonathans_iphone_x
+  - service: mobile_app_jonathans_ipad

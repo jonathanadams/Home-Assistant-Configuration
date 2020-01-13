@@ -1,0 +1,6 @@
+---
+# Alarm Sounding Notifications
+
+notification_alarm_sounding:
+  name: Alarm Sounding Notifications
+  initial: on

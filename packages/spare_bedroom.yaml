@@ -1,8 +1,0 @@
-# Spare Bedroom
-
-# Group
-group:
-  spare_room_all_lights:
-    name: Spare Room All Lights
-    entities:
-      - light.spare_room_ceiling_light

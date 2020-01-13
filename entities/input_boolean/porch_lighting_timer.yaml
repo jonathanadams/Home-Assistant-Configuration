@@ -1,0 +1,6 @@
+---
+# Porch Lighting Timer
+
+porch_lighting_timer:
+  name: Porch Lighting Timer
+  initial: on

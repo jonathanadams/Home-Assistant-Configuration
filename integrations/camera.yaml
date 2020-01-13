@@ -1,0 +1,5 @@
+---
+# Cameras
+# https://www.home-assistant.io/integrations/camera/
+
+camera: !include_dir_list ../entities/cameras

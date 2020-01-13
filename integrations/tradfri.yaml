@@ -1,0 +1,6 @@
+# Tradfri
+# https://www.home-assistant.io/integrations/tradfri/
+
+tradfri:
+  host: 10.1.1.174
+  allow_tradfri_groups: true
