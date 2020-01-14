@@ -5,3 +5,6 @@
 platform: darksky
 api_key: !secret darksky_api_key
 mode: daily
+units: uk
+latitude: !secret home_latitude
+longitude: !secret home_longitude
