@@ -3,14 +3,14 @@ description: Toggles bedside lamp on and off
 trigger:
 - event_data:
     event: 1002
-    unique_id: ec:1b:bd:ff:fe:1a:81:d8
+    unique_id: "ec:1b:bd:ff:fe:1a:81:d8"
   event_type: deconz_event
   platform: event
 condition: []
 action:
 - service: light.toggle
   data:
-    entity_id:  light.bedroom_lee_bedside_lamp
+    entity_id:  light.master_bedroom_lee_bedside_lamp
     transition: 0.5
     brightness: 255
   
