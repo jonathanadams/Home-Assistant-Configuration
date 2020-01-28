@@ -1,0 +1,8 @@
+---
+# Entity configuration for Amazon Alexa.
+# https://www.nabucasa.com/config/amazon_alexa/
+
+climate.master_bedroom:
+  name: Bedroom Radiator
+  description: Radiator in the Master Bedroom
+  display_categories: THERMOSTAT

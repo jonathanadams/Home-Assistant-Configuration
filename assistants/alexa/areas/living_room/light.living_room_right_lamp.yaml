@@ -1,0 +1,8 @@
+---
+# Entity configuration for Amazon Alexa.
+# https://www.nabucasa.com/config/amazon_alexa/
+
+light.living_room_right_lamp:
+  name: Living Room Right Lamp
+  description: Right Lamp in the Living Room
+  display_categories: LIGHT

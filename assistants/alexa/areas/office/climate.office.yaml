@@ -1,0 +1,8 @@
+---
+# Entity configuration for Amazon Alexa.
+# https://www.nabucasa.com/config/amazon_alexa/
+
+climate.office:
+  name: Office Radiator
+  description: Radiator in the Office
+  display_categories: THERMOSTAT
