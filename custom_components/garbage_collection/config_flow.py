@@ -47,6 +47,9 @@ from .const import (
     CONF_EXCLUDE_DATES,
     CONF_INCLUDE_DATES,
     CONF_MOVE_COUNTRY_HOLIDAYS,
+    CONF_PROV,
+    CONF_STATE,
+    CONF_OBSERVED,
     CONF_PERIOD,
     CONF_FIRST_WEEK,
     CONF_FIRST_DATE,
@@ -278,6 +281,7 @@ class GarbageCollectionFlowHandler(config_entries.ConfigFlow):
             final_info[CONF_FIRST_MONTH] = user_input[CONF_FIRST_MONTH]
             final_info[CONF_LAST_MONTH] = user_input[CONF_LAST_MONTH]
             if self._data[CONF_FREQUENCY] in MONTHLY_FREQUENCY:
+                final_info[CONF_PERIOD] = user_input[CONF_PERIOD]
                 day_selected = False
                 final_info[CONF_WEEKDAY_ORDER_NUMBER] = []
                 final_info[CONF_WEEK_ORDER_NUMBER] = []
@@ -310,6 +314,9 @@ class GarbageCollectionFlowHandler(config_entries.ConfigFlow):
             final_info[CONF_MOVE_COUNTRY_HOLIDAYS] = user_input[
                 CONF_MOVE_COUNTRY_HOLIDAYS
             ]
+            final_info[CONF_PROV] = user_input[CONF_PROV]
+            final_info[CONF_STATE] = user_input[CONF_STATE]
+            final_info[CONF_OBSERVED] = user_input[CONF_OBSERVED]
             if not is_dates(final_info[CONF_INCLUDE_DATES]) or not is_dates(
                 final_info[CONF_EXCLUDE_DATES]
             ):
@@ -329,10 +336,12 @@ class GarbageCollectionFlowHandler(config_entries.ConfigFlow):
         first_date = ""
         include_dates = ""
         exclude_dates = ""
-        include_country_holidays = ""
-
         period = 1
         first_week = 1
+        include_country_holidays = ""
+        prov = ""
+        state = ""
+        observed = True
         if user_input is not None:
             if CONF_FIRST_MONTH in user_input:
                 first_month = user_input[CONF_FIRST_MONTH]
@@ -350,6 +359,13 @@ class GarbageCollectionFlowHandler(config_entries.ConfigFlow):
                 exclude_dates = user_input[CONF_EXCLUDE_DATES]
             if CONF_MOVE_COUNTRY_HOLIDAYS in user_input:
                 include_country_holidays = user_input[CONF_MOVE_COUNTRY_HOLIDAYS]
+            if CONF_PROV in user_input:
+                prov = user_input[CONF_PROV]
+            if CONF_STATE in user_input:
+                state = user_input[CONF_STATE]
+            if CONF_OBSERVED in user_input:
+                observed = user_input[CONF_OBSERVED]
+
         data_schema = OrderedDict()
         data_schema[vol.Optional(CONF_FIRST_MONTH, default=first_month)] = vol.In(
             MONTH_OPTIONS
@@ -370,6 +386,9 @@ class GarbageCollectionFlowHandler(config_entries.ConfigFlow):
                 vol.Coerce(int), vol.Range(min=1, max=52)
             )
         if self._data[CONF_FREQUENCY] in MONTHLY_FREQUENCY:
+            data_schema[vol.Required(CONF_PERIOD, default=period)] = vol.All(
+                vol.Coerce(int), vol.Range(min=1, max=12)
+            )
             for i in range(5):
                 if self._data[CONF_FORCE_WEEK_NUMBERS]:
                     data_schema[
@@ -398,6 +417,9 @@ class GarbageCollectionFlowHandler(config_entries.ConfigFlow):
         data_schema[
             vol.Optional(CONF_MOVE_COUNTRY_HOLIDAYS, default=include_country_holidays)
         ] = vol.In(COUNTRY_CODES)
+        data_schema[vol.Optional(CONF_PROV, default=prov)] = str
+        data_schema[vol.Optional(CONF_STATE, default=state)] = str
+        data_schema[vol.Optional(CONF_OBSERVED, default=observed)] = bool
         return self.async_show_form(
             step_id="final", data_schema=vol.Schema(data_schema), errors=self._errors
         )
@@ -678,6 +700,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             final_info[CONF_FIRST_MONTH] = user_input[CONF_FIRST_MONTH]
             final_info[CONF_LAST_MONTH] = user_input[CONF_LAST_MONTH]
             if self._data[CONF_FREQUENCY] in MONTHLY_FREQUENCY:
+                final_info[CONF_PERIOD] = user_input[CONF_PERIOD]
                 day_selected = False
                 final_info[CONF_WEEKDAY_ORDER_NUMBER] = []
                 final_info[CONF_WEEK_ORDER_NUMBER] = []
@@ -705,6 +728,10 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             final_info[CONF_MOVE_COUNTRY_HOLIDAYS] = user_input[
                 CONF_MOVE_COUNTRY_HOLIDAYS
             ]
+            final_info[CONF_PROV] = user_input[CONF_PROV]
+            final_info[CONF_STATE] = user_input[CONF_STATE]
+            final_info[CONF_OBSERVED] = user_input[CONF_OBSERVED]
+
             if self._data[CONF_FREQUENCY] in DAILY_FREQUENCY:
                 if is_date(user_input[CONF_FIRST_DATE]):
                     final_info[CONF_FIRST_DATE] = user_input[CONF_FIRST_DATE]
@@ -720,6 +747,9 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 clean_optional(self._data, CONF_INCLUDE_DATES)
                 clean_optional(self._data, CONF_EXCLUDE_DATES)
                 clean_optional(self._data, CONF_MOVE_COUNTRY_HOLIDAYS)
+                clean_optional(self._data, CONF_PROV)
+                clean_optional(self._data, CONF_STATE)
+                clean_optional(self._data, CONF_OBSERVED)
                 # _LOGGER.debug("final_info %s",final_info)
                 self._data.update(final_info)
                 return self.async_create_entry(title="", data=self._data)
@@ -752,6 +782,11 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 )
             ] = vol.All(vol.Coerce(int), vol.Range(min=1, max=52))
         if self._data[CONF_FREQUENCY] in MONTHLY_FREQUENCY:
+            data_schema[
+                vol.Required(
+                    CONF_PERIOD, default=self.config_entry.options.get(CONF_PERIOD)
+                )
+            ] = vol.All(vol.Coerce(int), vol.Range(min=1, max=12))
             for i in range(5):
                 if self._data[CONF_FORCE_WEEK_NUMBERS]:
                     data_schema[
@@ -805,6 +840,22 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 default=self.config_entry.options.get(CONF_MOVE_COUNTRY_HOLIDAYS, ""),
             )
         ] = vol.In(COUNTRY_CODES)
+        data_schema[
+            vol.Optional(
+                CONF_PROV, default=self.config_entry.options.get(CONF_PROV, "")
+            )
+        ] = str
+        data_schema[
+            vol.Optional(
+                CONF_STATE, default=self.config_entry.options.get(CONF_STATE, "")
+            )
+        ] = str
+        data_schema[
+            vol.Optional(
+                CONF_OBSERVED,
+                default=self.config_entry.options.get(CONF_OBSERVED, True),
+            )
+        ] = bool
         return self.async_show_form(
             step_id="final", data_schema=vol.Schema(data_schema), errors=self._errors
         )
