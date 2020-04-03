@@ -1,7 +1,7 @@
 ---
 # Defines notification group for Lee's Devices
 
-name: jon_devices
+name: lee_devices
 platform: group
 services:
   - service: mobile_app_lees_iphone_x
