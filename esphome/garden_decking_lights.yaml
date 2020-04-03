@@ -2,7 +2,7 @@
 
 # Basic Config
 esphome:
-  name: master_bedroom_lee_lamp
+  name: garden_decking_lights
   platform: ESP8266
   board: esp01_1m
 
@@ -29,20 +29,20 @@ binary_sensor:
       number: GPIO0
       mode: INPUT_PULLUP
       inverted: True
-    name: "Master Bedroom Lee Lamp Button"
+    name: "Garden Decking Lights Button"
     on_press:
       - switch.toggle: relay
   - platform: status
-    name: "Master Bedroom Lee Lamp Status"
+    name: "Garden Decking Lights Status"
 
 sensor:
   - platform: wifi_signal
-    name: "Master Bedroom Lee Lamp WiFi Signal"
+    name: "Garden Decking Lights WiFi Signal"
     update_interval: 60s
 
 switch:
   - platform: gpio
-    name: "Master Bedroom Lee Lamp"
+    name: "Garden Decking Lights"
     pin: GPIO12
     id: relay
 
