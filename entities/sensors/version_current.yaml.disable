@@ -4,3 +4,4 @@
 
 platform: version
 name: version_current
+source: local
