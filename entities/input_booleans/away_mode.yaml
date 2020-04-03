@@ -1,0 +1,7 @@
+---
+# Guest Mode
+
+away_mode:
+  name: Away Mode
+  initial: false
+  icon: mdi:beach

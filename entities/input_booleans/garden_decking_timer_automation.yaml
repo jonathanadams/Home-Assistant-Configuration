@@ -1,0 +1,6 @@
+---
+# Garden Decking Light Timer Automation
+
+garden_decking_light_timer:
+  name: Garden Decling Lights Timer
+  initial: on
