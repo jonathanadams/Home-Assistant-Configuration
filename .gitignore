@@ -1,0 +1,31 @@
+# Generic ignores
+*.log
+*.db
+*.db-shm
+*.db-wal
+*.pyc
+._*
+__pycache__
+
+# Specific directory ignores
+.cloud
+.storage
+deps
+
+# Specific file ignores
+secrets.yaml
+ip_bans.yaml
+known_devices.yaml
+.ios.conf
+.uuid
+alexa_media*
+
+# ESPHome ignores
+esphome/secrets.yaml
+esphome/**/
+
+# Ignore files created by IDE's
+.vscode
+
+# Specific keeps
+!.gitkeep
