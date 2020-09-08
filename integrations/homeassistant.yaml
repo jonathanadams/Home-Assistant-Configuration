@@ -1,0 +1,7 @@
+---
+# Home Assistant
+# 
+
+homeassistant:
+  customize: !include_dir_merge_named ../customizations/entities
+  customize_domain: !include_dir_merge_named ../customizations/domains
