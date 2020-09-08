@@ -1,0 +1,5 @@
+---
+# Input Date Time
+# https://www.home-assistant.io/integrations/input_datetime/
+
+input_datetime: ~
