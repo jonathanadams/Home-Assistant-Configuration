@@ -1,9 +1,0 @@
----
-# Office - All Lamps
-# https://www.home-assistant.io/integrations/light.group/
-
-platform: group
-name: office_all_lamps
-entities:
-  - light.office_jon_desk_lamp
-  - light.office_lee_desk_lamp

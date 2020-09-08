@@ -1,8 +1,0 @@
----
-# Entity configuration for Amazon Alexa.
-# https://www.nabucasa.com/config/amazon_alexa/
-
-climate.living_room:
-  name: Living Room Radiator
-  description: Radiator in the Living Room
-  display_categories: THERMOSTAT

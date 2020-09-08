@@ -1,7 +1,0 @@
----
-# Sensor for displaying current version of Home Assistant
-# https://www.home-assistant.io/integrations/sensor.version/
-
-platform: version
-name: version_current
-source: local

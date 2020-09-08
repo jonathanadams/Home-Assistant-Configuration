@@ -1,8 +1,0 @@
----
-# Defines notification group for all family
-
-name: family
-platform: group
-services:
-  - service: jon_devices
-  - service: lee_devices

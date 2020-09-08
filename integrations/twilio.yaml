@@ -1,7 +1,0 @@
-# Twilio
-# https://www.home-assistant.io/components/twilio/
-# https://www.home-assistant.io/components/twilio_sms/
-
-twilio:
-  account_sid: !secret twilio_sid
-  auth_token: !secret twilio_auth_token
