@@ -1,0 +1,11 @@
+---
+# Recorder
+# https://www.home-assistant.io/integrations/recorder/
+
+recorder:
+  # DB is stored using MariaDB
+  db_url: !secret recorder_db_url
+  purge_keep_days: 3
+  
+  # Purging is managed using an automation
+  auto_purge: false
