@@ -1,17 +1,18 @@
 """Sensor platform for HACS."""
-# pylint: disable=unused-argument
 from homeassistant.helpers.entity import Entity
-
 from custom_components.hacs.const import DOMAIN, NAME_SHORT, VERSION
 from custom_components.hacs.share import get_hacs
+from homeassistant.core import callback
 
 
-async def async_setup_platform(hass, config, async_add_entities, _discovery_info=None):
+async def async_setup_platform(
+    _hass, _config, async_add_entities, _discovery_info=None
+):
     """Setup sensor platform."""
     async_add_entities([HACSSensor()])
 
 
-async def async_setup_entry(hass, config_entry, async_add_devices):
+async def async_setup_entry(_hass, _config_entry, async_add_devices):
     """Setup sensor platform."""
     async_add_devices([HACSSensor()])
 
@@ -28,7 +29,7 @@ class HACSDevice(Entity):
             "manufacturer": "hacs.xyz",
             "model": "",
             "sw_version": VERSION,
-            "type": "service",
+            "entry_type": "service",
         }
 
 
@@ -40,10 +41,26 @@ class HACSSensor(HACSDevice):
         self._state = None
         self.repositories = []
 
+    @property
+    def should_poll(self):
+        """No polling needed."""
+        return False
+
     async def async_update(self):
+        """Manual updates of the sensor."""
+        self._update()
+
+    @callback
+    def _update_and_write_state(self, *_):
+        """Update the sensor and write state."""
+        self._update()
+        self.async_write_ha_state()
+
+    @callback
+    def _update(self):
         """Update the sensor."""
         hacs = get_hacs()
-        if hacs.system.status.background_task:
+        if hacs.status.background_task:
             return
 
         self.repositories = []
@@ -97,3 +114,9 @@ class HACSSensor(HACSDevice):
                 }
             )
         return {"repositories": repositories}
+
+    async def async_added_to_hass(self) -> None:
+        """Register for status events."""
+        self.async_on_remove(
+            self.hass.bus.async_listen("hacs/status", self._update_and_write_state)
+        )
