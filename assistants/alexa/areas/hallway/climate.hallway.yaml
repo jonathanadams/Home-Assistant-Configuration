@@ -1,8 +1,0 @@
----
-  # Entity configuration for Amazon Alexa.
-  # https://www.nabucasa.com/config/amazon_alexa/
-  
-  climate.hallway:
-    name: Hallway Radiator
-    description: Radiator in the Hallway
-    display_categories: THERMOSTAT

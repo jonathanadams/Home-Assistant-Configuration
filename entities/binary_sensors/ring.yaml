@@ -1,7 +1,0 @@
----
-# Ring Doorbell
-# https://www.home-assistant.io/integrations/ring/
-
-# DISABLED: Currently disabled due to error
-
-platform: ring

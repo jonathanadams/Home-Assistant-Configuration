@@ -2,13 +2,4 @@
 # Cloud
 # https://www.home-assistant.io/integrations/cloud/
 
-cloud:
-  # Customize the Alexa integration with the Nabu Casa Cloud
-  alexa:
-    # Entity specific configuration for Google Assistant.
-    # These are loaded from a separate directory.
-    entity_config: !include_dir_merge_named ../assistants/alexa
-    # filter:
-    #   # Filters for entities to include/exclude from Alexa.
-    #   include_entities: []
-    #   exclude_entities: []
+cloud: ~

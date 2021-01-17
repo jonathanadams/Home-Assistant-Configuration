@@ -1,36 +1,31 @@
-# Git Ignore File
-
-# Do not ignore
-!/.gitignore
-!/.travis.yml
-
-# Logs
-logs
+# Generic ignores
 *.log
+*.db
+*.db-shm
+*.db-wal
+*.pyc
+._*
+__pycache__
 
-# Ignore Folders
-.storage
+# Specific directory ignores
 .cloud
-.vscode
-.Trash-*
-deps/
+.storage
+deps
 
-# Ignored Files
+# Specific file ignores
 secrets.yaml
 ip_bans.yaml
 known_devices.yaml
-*.conf
-*.db
-*.uuid
+.ios.conf
+.uuid
+alexa_media*
 
-# Node-Red
-node-red
+# ESPHome ignores
+esphome/secrets.yaml
+esphome/**/
 
-# Operating System Trash Files
-.DS_Store
+# Ignore files created by IDE's
+.vscode
 
-# Alexa Media
-alexa_media.*.pickle
-
-# Ring
-.ring_cache.pickle
+# Specific keeps
+!.gitkeep

@@ -1,3 +1,5 @@
+---
+# Main Home Assistant Configuration File
+
 homeassistant:
-  # Load packages
   packages: !include_dir_named integrations

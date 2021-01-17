@@ -1,8 +1,0 @@
----
-# Entity configuration for Amazon Alexa.
-# https://www.nabucasa.com/config/amazon_alexa/
-
-climate.kitchen:
-  name: Kitchen Radiator
-  description: Radiator in the Kitchen
-  display_categories: THERMOSTAT

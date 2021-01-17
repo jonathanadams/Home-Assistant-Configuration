@@ -1,8 +1,0 @@
----
-# Entity configuration for Amazon Alexa.
-# https://www.nabucasa.com/config/amazon_alexa/
-
-light.master_bedroom_jon_bedside_lamp:
-  name: Bedroom Lee Bedside Lamp
-  description: Lee's Bedside Lamp in the Master Bedroom
-  display_categories: LIGHT

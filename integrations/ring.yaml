@@ -1,9 +1,0 @@
-# Ring
-# https://www.home-assistant.io/integrations/ring/
-
-# DISABLED: Currently disabled due to error
-# https://community.home-assistant.io/t/ring-integration-setup-fails/156240/250
-
-ring:
-  username: !secret ring_username
-  password: !secret ring_password

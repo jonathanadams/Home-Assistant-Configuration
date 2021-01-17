@@ -1,13 +1,7 @@
 ---
 # Updater
 # https://www.home-assistant.io/integrations/updater/
-#
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 
 updater:
-  # Share information with Home Assistant Developers
   reporting: true
-
-  # Report list of components to Home Assistant Developers
   include_used_components: true

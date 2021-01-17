@@ -1,9 +1,0 @@
-# Travis CI Sensor
-# https://www.home-assistant.io/components/travisci/
-
-platform: travisci
-api_key: !secret travisci_api_key
-repository: "Home-Assistant-Configuration"
-monitored_conditions:
-  - last_build_id
-  - last_build_state

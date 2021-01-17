@@ -1,6 +1,5 @@
 ---
 # iOS
-# https://www.home-assistant.io/integrations/ios/
-# https://www.home-assistant.io/docs/ecosystem/ios/
+# https://companion.home-assistant.io/docs/getting_started/getting-started
 
-ios:
+ios: ~

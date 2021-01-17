@@ -1,6 +1,4 @@
 ---
 # Hassio
-# Enables the hassio pannel on the frontend
-#
 
-hassio:
+hassio: ~
