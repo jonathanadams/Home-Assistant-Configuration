@@ -2,7 +2,7 @@
 
 # Basic Config
 esphome:
-  name: living_room_right_lamp
+  name: christmas_tree
   platform: ESP8266
   board: esp01_1m
 
@@ -29,20 +29,20 @@ binary_sensor:
       number: GPIO0
       mode: INPUT_PULLUP
       inverted: True
-    name: "Living Room Right Lamp Button"
+    name: "Christmas Tree Button"
     on_press:
       - switch.toggle: relay
   - platform: status
-    name: "Living Room Right Lamp Status"
+    name: "Christmas Tree Status"
 
 sensor:
   - platform: wifi_signal
-    name: "Living Room Right Lamp WiFi Signal"
+    name: "Christmas Tree WiFi Signal"
     update_interval: 60s
 
 switch:
   - platform: gpio
-    name: "Living Room Right Lamp"
+    name: "Christmas Tree"
     pin: GPIO12
     id: relay
 

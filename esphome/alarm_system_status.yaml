@@ -1,8 +1,13 @@
-# Custom ESP8266 Device
+# Substitutions
+substitutions:
+  device_name: alarm_system_status
+  device_description: |
+    Status monitoring for Honeywell Accenta G4 Alarm System.
 
 # Basic Config
 esphome:
-  name: alarm_system_status
+  name: ${device_name}
+  comment: ${device_description}
   platform: ESP8266
   board: d1_mini
 
@@ -18,24 +23,32 @@ api:
 ota:
   password: !secret esphome_ota_password
 
-time:
-  - platform: sntp
-    id: sntp_time
-
 # Device Specific Config
 binary_sensor:
+  # Arming Status Binary Sensor
   - platform: gpio
     pin:
       number: GPIO12
       inverted: true
     id: alarm_arming_staus
+    name: "Alarm Arming"
+  # Sounder Status Binary Sensor
   - platform: gpio
     pin:
       number: GPIO14
       inverted: true
     id: alarm_sounder_status
+    name: "Alarm Sounder"
+  # Abort Status Binary Sensor
+  - platform: gpio
+    pin:
+      number: GPIO13
+      inverted: true
+    id: alarm_abort_status
+    name: "Alarm Abort"
     
 text_sensor:
+  # Legacy - Arming Status Text Sensor
   - platform: template
     name: "Alarm Arming Status"
     icon: "mdi:lock"
@@ -46,6 +59,7 @@ text_sensor:
         return {"Disarmed"};
       }
     update_interval: 5s
+  # Legacy - Sounder Status Text Sensor
   - platform: template
     name: "Alarm Sounder Status"
     icon: "mdi:alarm-bell"
@@ -58,10 +72,18 @@ text_sensor:
     update_interval: 5s
     
 sensor:
+  # WiFi Signal
   - platform: wifi_signal
-    name: "Alarm System WiFi Status"
+    name: "Alarm System WiFi Strength"
     update_interval: 60s
+  # Uptime
+  - platform: uptime
+    name: "Alarm System Uptime"
+    filters:
+      - lambda: return x / 60.0;
+    unit_of_measurement: minutes
     
 switch:
+  # Device Restart Switch
   - platform: restart
     name: "Alarm System Status Restart"

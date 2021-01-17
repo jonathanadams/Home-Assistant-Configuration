@@ -3,14 +3,14 @@
 # Substitutions
 substitutions:
   # Device Names
-  device_name: "test_energy_monitor_plug"
-  friendly_name: "Test Energy Monitor Plug"
+  device_name: "hot_tub_energy_monitor_plug"
+  friendly_name: "Hot Tub"
   # Icon
-  main_icon: "power-socket-uk"
+  main_icon: "hot-tub"
   # Default Relay State
   # Aka: `restore_mode` in documentation
   # Options: `RESTORE_DEFAULT_OFF`, `RESTORE_DEFAULT_ON`, `ALWAYS_ON` & `ALWAYS_OFF`
-  default_state: "RESTORE_DEFAULT_OFF"
+  default_state: "ALWAYS_ON"
   # Activity State Threshold
   # Threshold (number) that the device will change from `Idle` to `Active` if power is greater than or equal to
   activity_threshold: "10"
@@ -33,11 +33,18 @@ api:
 ota:
   password: !secret esphome_ota_password
 
-time:
-  - platform: sntp
-    id: sntp_time
-
 # Device Specific Config
+time:
+  - platform: homeassistant
+    timezone: "Europe/London"
+    # on_time:
+    #   - seconds: 59
+    #     minutes: 14
+    #     hours: 00
+    #     then:
+    #       - lambda: |-
+    #           id(energy_yesterday).publish_state(id(energy_today).state);
+
 binary_sensor:
   # Push Button (Toggles Relay When Pressed)
   - platform: gpio
@@ -70,6 +77,16 @@ switch:
           transition_length: 0s
   
 sensor:
+  # Electricity Unit Rate from Home Assistant
+  - platform: homeassistant
+    id: electricity_unit_rate
+    entity_id: input_number.electricity_unit_rate
+    accuracy_decimals: 5
+    unit_of_measurement: "£"
+    filters:
+      - lambda: |-
+          return x / 100;
+    
   # WiFi Signal Sensor
   - platform: wifi_signal
     name: "${friendly_name} WiFi Status"
@@ -85,9 +102,10 @@ sensor:
     update_interval: 3s
     voltage:
       name: "${friendly_name} Voltage"
+      icon: "mdi:alpha-v"
       id: voltage
       unit_of_measurement: V
-      accuracy_decimals: 1
+      accuracy_decimals: 3
       filters:
         # Map from sensor -> measured value
         - calibrate_linear:
@@ -96,9 +114,10 @@ sensor:
             - 609.8 -> 232.8
     power:
       name: "${friendly_name} Power"
+      icon: "mdi:alpha-w"
       id: power
       unit_of_measurement: W
-      accuracy_decimals: 0
+      accuracy_decimals: 3
       filters:
         # Map from sensor -> measured value
         - calibrate_linear:
@@ -112,6 +131,7 @@ sensor:
             - 7426.71338 -> 1217.0
     current:
       name: "${friendly_name} Current"
+      icon: "mdi:alpha-a"
       id: current
       unit_of_measurement: A
       accuracy_decimals: 3
@@ -124,20 +144,50 @@ sensor:
             - 5.57170 -> 4.408
             - 6.69184 -> 5.259
             - 6.97187 -> 5.540
-    
-text_sensor:
-  # Device Activity State
-  # e.g. shows as active if power reading above a certain threshold
+  # Energy Usage - Today
+  - platform: total_daily_energy
+    name: "${friendly_name} Energy Today"
+    icon: "mdi:flash"
+    id: energy_today
+    power_id: power
+    unit_of_measurement: kWh
+    accuracy_decimals: 3
+    filters:
+      - multiply: 0.001
+  # Energy Cost - Today
   - platform: template
-    name: "${friendly_name} Activity State"
-    icon: "mdi:${main_icon}"
+    name: "${friendly_name} Energy Cost Today"
+    unit_of_measurement: "£"
+    accuracy_decimals: 3
+    icon: "mdi:currency-gbp"
     lambda: |-
-      if (id(power).state >= $activity_threshold) {
-        return {"Active"};
+      return id(energy_today).state * id(electricity_unit_rate).state;
+  # # Energy Usage - Yesterday
+  # - platform: template
+  #   name: "${friendly_name} Energy Yesterday"
+  #   icon: "mdi:flash"
+  #   id: energy_yesterday
+  #   unit_of_measurement: kWh
+  #   accuracy_decimals: 3
+      
+      
+text_sensor:
+  # Activity Status
+  - platform: template
+    name: "${friendly_name} Activity Status"
+    lambda: |-
+      if (id(power).state >= 30) {
+        return {"Pump Only"};
+      } else if (id(power).state > 760) {
+        return {"Heater Only"};
+      } else if (id(power).state > 790) {
+        return {"Pump & Bubbles"};
+      } else if (id(power).state > 1500) {
+        return {"Pump & Heater"};
       } else {
         return {"Idle"};
       }
-    update_interval: 5s
+    update_interval: 60s
 
 # Relay State LED
 output:
