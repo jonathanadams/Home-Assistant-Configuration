@@ -12,6 +12,7 @@ __pycache__
 .cloud
 .storage
 deps
+tts
 
 # Specific file ignores
 core
